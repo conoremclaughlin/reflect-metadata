@@ -19,7 +19,9 @@ var Reflect;
   (function (factory) {
     var root =
       // Detect if this is a Sandboxed window object
-      this !== window && this["wrappedJSObject"] === window["wrappedJSObject"]
+      typeof window != "undefined" &&
+      this !== window &&
+      this["wrappedJSObject"] === window["wrappedJSObject"]
         ? this
         : typeof global === "object"
         ? global

@@ -623,8 +623,8 @@ namespace Reflect {
     (function (this: any, factory: (exporter: <K extends keyof typeof Reflect>(key: K, value: typeof Reflect[K]) => void) => void) {
         const root =
             // Detect if this is a Sandboxed window object
-            this !== window
-                && this['wrappedJSObject'] === window['wrappedJSObject']
+            (typeof window != 'undefined' && this !== window
+                && this['wrappedJSObject'] === window['wrappedJSObject'])
                 ? this :
             typeof global === "object" ? global :
             typeof self === "object" ? self :
